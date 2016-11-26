@@ -1,0 +1,19 @@
+
+Comandos Básicos:
+//crear package
+npm init
+
+//instalar en la ruta del proyecto
+npm install <<paquete>> --save
+
+//instalar en el servidor
+npm install <<paquete>> -g
+
+//instala los modules del archivo packages
+npm install
+
+
+Herramientas de maqueteo
+- PUG
+- Stylus
+- Golp
