@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista Usuarios</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Lista de Usuarios</h1>
+    
+    <table>
+    	<tr>
+    		<th>Nombre</th>
+    		<th>Apellidos</th>
+    	</tr>
+    	<%registros.forEach(function(item){%>
+ 		<tr>
+ 			<td><%=item.nombre%></td>
+ 			<td><%=item.apellido%></td>
+ 			<td>
+ 				<a href="/usuarios/<%=item._id%>">Editar</a>
+ 				<a href="/usuarios/eliminar/<%=item._id%>">Eliminar</a>
+ 			</td>
+ 		</tr>
+    	<%})%>
+    </table>
+
+
+    <form method="post" action="/usuarios">
+    	<input type="text" name="nombre" placeholder="Ingrese su Nombre"><br>
+    	<input type="text" name="apellido" placeholder="Ingrese su Apellido">
+
+    	<input type="submit" name="btnEnviar" value="Evniar">
+    </form>
+
+  </body>
+</html>

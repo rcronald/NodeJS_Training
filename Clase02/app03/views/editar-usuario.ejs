@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edición Usuarios</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Edición de Usuarios</h1>
+    
+    <form method="post" action="/usuarios/<%=registro._id%>/?_method=put">
+    	<input type="text" name="nombre" placeholder="Ingrese su Nombre" value="<%=registro.nombre%>"><br>
+    	<input type="text" name="apellido" placeholder="Ingrese su Apellido" value="<%=registro.apellido%>"><br>
+
+    	<input type="submit" name="btnEnviar" value="Eviar">
+    </form>
+
+  </body>
+</html>

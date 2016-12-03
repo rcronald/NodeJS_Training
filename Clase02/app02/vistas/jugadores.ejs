@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Lista de Jugadores de <%=equipo%></title>
+</head>
+<body>
+<body>
+	<h1>Club: <%=equipo%></h1>
+	<table>
+		<tr>
+			<th>Nombre</th>
+			<th>Activo</th>
+		</tr>
+		<%jugadores.forEach(function(item, index){%>
+		<tr>
+			<td><%=item.jugador%></td>
+			<td><%=item.activo%></td>
+		</tr>
+		<%})%>
+	</table>
+</body>
+</html>
+</body>
+</html>

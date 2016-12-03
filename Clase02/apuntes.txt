@@ -5,13 +5,22 @@ MongoDB
 ./mongo
 utiliza el puerto 27017
 show dbs
+use admin
+show collections
+db.system.version.find()
 
+//Crendo mi bd
+use mibd
+db.usuarios.find()
+db.usuarios.insert({nombre:"Ronald"})
 
 
 NODE JS
 =======
 npm install express ejs --save
 sudo npm install supervisor -g
+npm install body-parser --save
+sudo npm install express-generator -g
 
 node index
 
@@ -27,3 +36,27 @@ ejs
 supervisor <permite escuchar los cambios en elos archivos que evitar estar bajando y subiendo la app>
 PhantomJS <Permite generar archivos como excel y pdf>
 agenda <jobs>
+
+
+express-generator
+	express app03 -ejs   --> crea proyecto
+	node ./bin/www       --> inicia proyecto
+	npm start
+
+mongodb / monk <Permite conectarme a Mongo DB>, e implementa promesas
+	- Find
+	- Insert
+	- Update
+	- Remove
+
+	npm install mongodb monk --save
+
+method-override <Permite detectar los parametros ?_method y los dirige a la ruta que debe ser>
+	npm install method-override --save
+
+GIT
+===
+git clone <ruta>
+git add .
+git commit -m "Clase02"
+git push origin master
