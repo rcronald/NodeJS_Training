@@ -1,0 +1,29 @@
+
+MongoDB
+========
+./mongod --dbpath=/Users/admin/Desktop/mongodb/data
+./mongo
+utiliza el puerto 27017
+show dbs
+
+
+
+NODE JS
+=======
+npm install express ejs --save
+sudo npm install supervisor -g
+
+node index
+
+supervisor index.js
+
+
+Frameworks
+=========
+express
+ejs
+	jade
+	pug
+supervisor <permite escuchar los cambios en elos archivos que evitar estar bajando y subiendo la app>
+PhantomJS <Permite generar archivos como excel y pdf>
+agenda <jobs>
