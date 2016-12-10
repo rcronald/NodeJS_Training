@@ -1,0 +1,18 @@
+{
+  "name": "custom-http",
+  "version": "1.0.0",
+  "description": "custom-http",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "deathbycaptcha3": "^1.1.1",
+    "encodeurl": "^1.0.1",
+    "jsdom": "^9.8.3",
+    "request": "^2.79.0",
+    "winston": "^2.3.0"
+  }
+}
