@@ -1,0 +1,67 @@
+<% include cabecera %>
+
+<div class="container">
+	<div class="row">
+		<h1>Historias</h1>	
+
+		<div class="col-md-8">	
+			<form class="form-horizontal">
+				<div class="form-group">
+				    <label class="col-md-4 control-label">Fecha de atención</label>
+				    <div class="col-md-6">
+				      <input type="date" class="form-control" name="fecha" placeholder="Fecha">
+				    </div>					
+				</div>
+				<div class="form-group">
+				    <label class="col-md-4 control-label">Número Historia</label>
+				    <div class="col-md-6">
+				      <input type="number" class="form-control" name="numero" placeholder="Número de Historia">
+				    </div>					
+				</div>
+				<div class="form-group">
+				    <label class="col-md-4 control-label">Paciente</label>
+				    <div class="col-md-6">
+				      <input type="text" class="form-control" name="paciente" placeholder="Nombre Completo">
+				    </div>					
+				</div>
+				<div class="form-group">
+				    <label class="col-md-4 control-label">Médico</label>
+				    <div class="col-md-6">
+				      <input type="text" class="form-control" name="medico" placeholder="Médico">
+				    </div>					
+				</div>
+				<div class="form-group">
+				    <label class="col-md-4 control-label">Paramédico</label>
+				    <div class="col-md-6">
+				      <input type="text" class="form-control" name="paramedico" placeholder="Paramédico">
+				    </div>					
+				</div>
+				<div class="form-group">
+				    <label class="col-md-4 control-label">Piloto</label>
+				    <div class="col-md-6">
+				      <input type="text" class="form-control" name="piloto" placeholder="Piloto">
+				    </div>					
+				</div>
+				<div class="form-group">
+				    <label class="col-md-4 control-label">Síntomas</label>
+				    <div class="col-md-6">
+			    		<textarea class="form-control" name="sintomas" rows="8" placeholder="Síntomas"></textarea>
+				    </div>					
+				</div>
+				<div class="form-group">
+				    <label class="col-md-4 control-label">Tratamiento</label>
+				    <div class="col-md-6">
+			    		<textarea class="form-control" name="tratamiento" rows="8" placeholder="Tratamiento"></textarea>
+				    </div>					
+				</div>	
+				<div class="form-group text-center">
+					<a class="btn btn-success">Insertar / Editar</a>
+					<a class="btn btn-danger">Eliminar</a>
+				</div>						
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<% include pie %>

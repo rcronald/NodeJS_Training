@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	a.activo {
+		font-size:25px;
+		font-weight: bold
+	}
+	</style>
+</head>
+<body>
+
+	<table>
+		<tr>
+			<th>Indice</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+		</tr>
+		<% registros.forEach(function(reg, ind) { %>
+			<tr>
+				<td><%= ind %></td>
+				<td><%= reg.nombre %></td>
+				<td><%= reg.apellido %></td>
+			</tr>
+		<% }) %>
+	</table>
+
+	<% for(var ind=0; ind<cantidadPaginas; ind++){ %>
+		<a href="/<%= ind+1 %>" class="<% if(ind+1 == pagina) { %> <%= 'activo' %> <% } %>"> <%= ind+1 %></a>
+	<% } %>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	canvas {
+		background-color: black;
+		float: left;
+		margin-right:10px;
+	}
+	</style>
+</head>
+<body>
+
+<button id="btnBorrar">Borrar</button>
+<canvas id="canvas1" width="600" height="600"></canvas>
+<canvas id="canvas2" width="600" height="600"></canvas>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+	var socket = io()
+	socket.emit("mensaje al servidor", "Hola")
+	socket.on("respuesta", function(msg){
+		console.log(msg)
+	})
+
+	socket.on("trazar", function(x0,y0,x1,y1){
+		contexto2.beginPath()
+		contexto2.moveTo(x0,y0)
+		contexto2.lineTo(x1,y1)
+		contexto2.stroke()
+		contexto2.closePath()
+	})
+
+	socket.on("borrar todo", function(){
+		contexto2.clearRect(0,0,600,600)
+	})
+
+	var dibujando = false
+
+	var canvas1 = document.getElementById("canvas1")
+	var contexto1 = canvas1.getContext("2d")
+	contexto1.lineWidth = 2
+	contexto1.strokeStyle = "red"
+
+	var canvas2 = document.getElementById("canvas2")
+	var contexto2 = canvas2.getContext("2d")
+	contexto2.lineWidth = 2
+	contexto2.strokeStyle = "red"
+
+	var puntoInicio = {}
+
+	canvas1.addEventListener("mousedown", function(e){
+		puntoInicio.x = e.clientX
+		puntoInicio.y = e.clientY
+		dibujando = true
+	})
+
+	canvas1.addEventListener("mouseup", function(e){
+		puntoInicio = {}
+		dibujando = false
+	})
+
+	canvas1.addEventListener("mousemove", function(e){
+		if(!dibujando) return
+
+		contexto1.beginPath()
+		contexto1.moveTo(puntoInicio.x, puntoInicio.y)
+		contexto1.lineTo(e.clientX, e.clientY)
+		contexto1.stroke()
+		contexto1.closePath()
+
+		socket.emit("trazo", puntoInicio.x, puntoInicio.y, e.clientX, e.clientY)
+
+		puntoInicio.x = e.clientX
+		puntoInicio.y = e.clientY
+	})
+
+	var btnBorrar = document.getElementById("btnBorrar")
+	btnBorrar.addEventListener("click", function(){
+		contexto1.clearRect(0,0,600,600)
+		contexto2.clearRect(0,0,600,600)
+
+		socket.emit("borrar")
+	})
+
+
+</script>
+
+</body>
+</html>
