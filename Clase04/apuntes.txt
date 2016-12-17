@@ -1,0 +1,69 @@
+Autenticacion
+=============
+
+	Libreria: Passport.js
+		- FB, Google, Twitter y GitHub
+		- Local BD -> Passport-local.js
+		- Token
+
+		Cada uno de las autenticaciones es conocido como estrategias.
+
+		Local:
+		======
+		req.user
+		req.logout
+		req.isAuthenticated()
+
+
+		npm install passport --save
+		npm install passport-local --save
+
+
+		Redes Sociales:
+		===============
+		clientID
+		clientSecret
+		callbackURL
+
+		Facebook
+		npm install passport passport-facebook mongodb monk cookie-session --save
+
+		Google
+		npm install passport-google-oauth2 --save
+
+
+		npm install passport-twitter --save
+
+		npm install passport-github --save
+
+		Twitter:
+		========
+		consumerID
+		consumerSecret
+		callbackURL
+
+	Libreria: Cookie-session.js
+		npm install cookie-session --save
+
+
+Lectura:
+https://carlosazaustre.es/blog/
+https://carlosazaustre.es/blog/autenticacion-con-token-en-angularjs/
+generador de politicas de privacidad
+
+site.area51
+
+
+
+
+SAILS
+=====
+sudo npm install sails -g
+
+sails new <proyecto>
+
+sails generate api Usuarios
+
+
+
+
