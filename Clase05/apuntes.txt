@@ -41,10 +41,16 @@ sails console
 
 	Buscar Duenos
 	Duenos.find().exec(console.log)
-	
+
 	Buscar Mascotas con sus dueños
 	Mascotas.find().populate("dueno").exec(console.log)
 
+
+Relaciones:
+
+	1 to 1 --> model to model
+	1 to n --> Collection to model
+	n to n --> Collection to Collection
 
 
 Para trabajar con mysql ejecutar:
