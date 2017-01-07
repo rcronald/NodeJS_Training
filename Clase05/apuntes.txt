@@ -1,0 +1,78 @@
+Sails <--- Express <--- Node JS
+
+Mysql
+root: 04pHvpulVf-T
+
+Instalar Express
+sudo npm install express-generator -g
+
+Instalar Sails
+sudo npm install sails -g
+
+Saber si esta está instalado el sails
+sails -v
+
+
+Crear nuevo proyecto
+sails new <app>
+
+Genera el modelo de la aplicacion
+sails generate model <nombre>
+sails generate model Duenos
+sails generate model Mascotas
+
+Iniciar el app sails
+sails lift
+
+Iniciar el app sails y navegar en la data
+sails console
+	Buscar en modelo
+	Duenos.find().exec(console.log)
+
+	Insertar en el modelo
+	Duenos.create({nombre : "Ronald", apellido : "Requena"}).exec(console.log)
+
+	Duenos.create({nombre : "Ronald", apellido : "Requena", sexo : "hombre", estadoCivil : 1, educacion : "Ingeniero Informatico 1234567"}).exec(console.log)
+
+	Duenos.create({nombre : "Juan", apellido : "Pulido", sexo : "hombre", estadoCivil : 1}).exec(console.log)
+
+	Actualizar en el modelo
+	Mascotas.update({idMascota : 2}, {dueno : 1}).exec(console.log)
+
+	Buscar Duenos
+	Duenos.find().exec(console.log)
+	
+	Buscar Mascotas con sus dueños
+	Mascotas.find().populate("dueno").exec(console.log)
+
+
+
+Para trabajar con mysql ejecutar:
+npm install sails-mysql --save
+
+
+Cadenas de conexion
+config/connections.js
+config/models.js
+
+Parte servidor
+api/
+
+Parte publica
+.tmp
+assets/
+
+
+Pm2 y NodeMon
+Mantiene la aplicacion iniciada
+
+RoboMongo
+Interfaz del mongo
+
+
+
+Replicacion de data de Sails
+1 Nada -> Safe
+2 Modificar -> Alter
+3 Borrer -> Drop
+2 y 3 no en produccion
