@@ -43,3 +43,6 @@ En el assets puedes iniciar angular
 Directivas
 	$q -> promesas
 	$http -> acceder a servicios rest
+	
+	
+revisar!!!!! satelized azaustred
