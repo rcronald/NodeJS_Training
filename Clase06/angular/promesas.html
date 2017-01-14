@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+	<style type="text/css">
+
+		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  			display: none !important;
+		}
+	</style>
+</head>
+<body ng-controller="controlador as ctrl" ng-cloak>
+
+	<ul>
+		<li ng-repeat="alumno in ctrl.alumnos">{{alumno}}</li>
+	</ul>
+
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript">
+		var app = angular.module("app", [])
+
+		app.controller("controlador", ["data", function(data){
+			
+			this.alumnos = []
+
+			var promesa = data.listadoAlumnos()
+			var self = this
+
+			promesa.then(function(lista){
+				self.alumnos = lista
+			})
+
+			promesa.catch(function(err){
+				console.log(err)
+			})
+
+
+		}])
+
+		app.factory("data", ["$q", function($q){
+			var obj = {}
+
+			obj.listadoAlumnos = function(){
+				var diferido = $q.defer()
+
+				setTimeout(function(){
+					var alumnos = ["Sergio", "Ronald", "Jose", "Cynthia"]
+
+					diferido.resolve(alumnos)
+				}, 3000)
+
+				return diferido.resolve
+			}
+
+			return obj
+		}])
+
+	</script>
+
+</body>
+</html>

@@ -1,1 +1,45 @@
-apuntes.txt
+
+
+NODE
+	- NPM
+		packege.json
+	- BOWER
+		bower.json
+
+npm install bower -g
+
+//Crear proyecto
+bower init
+
+//Instalar angular en tu proyecto
+bower install angular#1.6.1 --save
+
+
+
+ANGULAR
+	Controlador (controller)-> lógica
+	Factorias	(factory)-> modelo que devuelve objeto
+	Servicios	-> modelo que devuelve funciones
+	Proveedores -> modelo que devuelve funciones que se instancia al inicio
+	Directivas 	->
+
+
+
+sails new 01-api
+sails generate api usuarios
+npm install sails-mysql --save
+sails lift
+
+En Sails se modifican los siguientes archivos:
+	config/connections
+	config/model
+	config/blueprints
+	config/routes
+
+En el assets puedes iniciar angular
+	bower init
+	bower install angular#1.6.1 --save
+
+Directivas
+	$q -> promesas
+	$http -> acceder a servicios rest
