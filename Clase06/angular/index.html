@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+	<style type="text/css">
+		.vacio{
+			color: red;
+
+		}
+		.novacio{
+			color: green;
+		}
+
+		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  			display: none !important;
+		}
+	</style>
+</head>
+<body ng-controller="controlador as ctrl" ng-cloak>
+
+	<!--Del codigo al hrml-->
+	<h1>{{ctrl.nombre}}</h1>
+
+	<!--Del html al codigo-->
+	<input type="text" ng-model="ctrl.nombre">
+
+	<div ng-show="ctrl.matriculado">Esta matriculado</div>
+
+
+	<h1>Cursos</h1>
+	<form>
+		<input type="text" ng-model="ctrl.nuevoCurso">
+		<span ng-class="{vacio : (ctrl.nuevoCurso == ''), novacio : (ctrl.nuevoCurso!='')}">requerido</span>
+		<br>
+		<button ng-click="ctrl.agregarNuevoCurso()">Agregar</button>
+	</form>
+	<ul>
+		<li ng-repeat="item in ctrl.cursos track by $index">
+			<a href ng-click="ctrl.eliminarCurso(item)">{{$index + "-" + item}}</a>
+		</li>
+
+		<li><strong>Total de cursos: {{ctrl.cursos.length}}</strong></li>
+	</ul>
+
+
+	<img ng-src="{{ctrl.imagenChica}}">
+
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript">
+		var app = angular.module("app", [])
+
+		app.controller("controlador", [function(){
+
+			//$scope.nombre = ""
+			this.nombre = "Ronald"
+
+			this.matriculado = true
+
+			this.nuevoCurso = ""
+			this.cursos = ["Angular 2", "Phaser", "Babylon", "NodeJS", "Babel", "Gulp", "Grunt"]
+
+			this.imagenChica = "chica.jpg"
+
+			this.agregarNuevoCurso = function(){
+				if(this.nuevoCurso!=""){
+					this.cursos.push(this.nuevoCurso)
+					this.nuevoCurso = ""
+				}else{
+					alert("Ingrese un nombre valido")
+				}
+
+			}
+
+			this.eliminarCurso = function(curso){
+				var pos = this.cursos.indexOf(curso)
+				this.cursos.splice(pos, 1)
+			}
+
+		}])
+
+	</script>
+
+</body>
+</html>
