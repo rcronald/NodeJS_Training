@@ -59,15 +59,15 @@ module.exports = {
 
 	eliminar : function(req, res){
 		var filtro = {idUsuario : req.params.id}
+
 		Usuarios
-			.destroy()
-			.where(filtro)
+			.destroy(filtro)
 			.then(function(registros){
 				res.json(registros)
 			})
 			.catch(function(err){
 				res.negotiate(err)
 			})
-	},
+	}
 };
 

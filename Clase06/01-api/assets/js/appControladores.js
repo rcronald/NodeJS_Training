@@ -8,6 +8,9 @@ app.controller("controlador", ["http", function(http){
 		.listar()
 		.then(function(registros){
 			self.alumnos = registros.data
+			self.alumnos.forEach(function(alumno){
+				alumno.editando = false
+			})
 		})
 		.catch(function(err){
 			console.log(err)
@@ -31,30 +34,36 @@ app.controller("controlador", ["http", function(http){
 		http
 			.insertar(data)
 			.then(function(registros){
-				http.listar()
+				return http.listar()
 			})
 			.then(function(registros){
 				self.alumnos = registros.data
+				self.alumnos.forEach(function(alumno){
+					alumno.editando = false
+				})
 			})
-			.catch(function(err)){
+			.catch(function(err){
 				console.log(err)
-			}
+			})
 
 	}
 
 	http.actualizar = function(registro){
 		var data = {nombre : registro.nombre}
 		http
-			.actualizar(data, id)
+			.actualizar(data, registro.idUsuario)
 			.then(function(registros){
 				http.listar()
 			})
 			.then(function(registros){
 				self.alumnos = registros.data
+				self.alumnos.forEach(function(alumno){
+					alumno.editando = false
+				})
 			})
-			.catch(function(err)){
+			.catch(function(err){
 				console.log(err)
-			}
+			})
 
 	}
 
@@ -67,14 +76,17 @@ app.controller("controlador", ["http", function(http){
 		http
 			.eliminar(registro.idUsuario)
 			.then(function(registros){
-				http.listar()
+				return http.listar()
 			})
 			.then(function(registros){
 				self.alumnos = registros.data
+				self.alumnos.forEach(function(alumno){
+					alumno.editando = false
+				})
 			})
-			.catch(function(err)){
+			.catch(function(err){
 				console.log(err)
-			}
+			})
 
 	}
 }])

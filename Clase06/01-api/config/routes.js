@@ -50,7 +50,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   "get /usuarios" : {
-    controller : "usuariosController",
+    controller : "UsuariosController",
     action : "listar"
   },
 
