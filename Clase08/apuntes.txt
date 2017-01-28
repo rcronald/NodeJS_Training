@@ -1,0 +1,63 @@
+Subscribe -> Actualizaciones
+
+Watch -> Elimina 
+			Agrega
+
+
+
+Actualizar el NPM a la versión 4 que ya esta solucionado problemas de velocidad.
+	npm install -g npm@lastest
+
+
+Instalar Bower -> para trabajar con angular
+	sudo npm install bower -g
+
+En la carpeta assests ejecutar:
+	bower init 
+
+Luego ejecutar el comando 
+	bower install angular#1.6.1 --save
+
+
+
+Cuando se pasa ambiente Produccion:
+	1. Desactivar el blueprints
+	2. Revisar politicas de seguridad
+	3. Quitar que nuestro sitio se utilice de rutas diferentes dominios
+		config/cors.js
+
+		allRoutes: true
+		origin: 'dominio1.com, dominio2.com'
+
+	4. Aumentar el tiempo al grunt
+		config/local.js
+
+		hookTimeout : 120000
+
+	5. No utilizar sails lift
+		forever
+		pm2 -> es el mejor
+			sudo npm install pm2 -g
+			Desarrollo
+				pm2 start app.js -n sincronizacion
+			Produccion
+				pm2 start app.js -n sincronizacion -x -- --prod
+			Listar apps
+				pm2 list
+				pm2 show <nombre>
+			Reiniciar app
+				pm2 restart <nombre>
+			Detener
+				pm2 stop <nombre>
+			Eliminar configuracion 
+				pm2 delete <nombre>
+			Listar los logs de la app
+				pm2 logs
+			Status
+				pm2 monit
+
+		upstart -> como servicio
+
+	6. configurar los socket.io
+		config/sockets.js
+			transports: ["polling", "websocket"]
