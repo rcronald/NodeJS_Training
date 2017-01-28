@@ -18,6 +18,10 @@ En la carpeta assests ejecutar:
 Luego ejecutar el comando 
 	bower install angular#1.6.1 --save
 
+Crear Proyecto en Sails
+	sails new 02-upload
+
+	sails generate controller fotos
 
 
 Cuando se pasa ambiente Produccion:
@@ -61,3 +65,7 @@ Cuando se pasa ambiente Produccion:
 	6. configurar los socket.io
 		config/sockets.js
 			transports: ["polling", "websocket"]
+
+
+Correo donde Enviar
+	sergiohidalgocaceres@gmail.com
